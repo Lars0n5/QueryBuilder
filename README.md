@@ -29,15 +29,19 @@
 				'type' => 'mysql'
 			];
 2. Создайте дочерний класс, отнаследовав его от класса DBWrapper и реализуйсте метод connect.
-	protected function connect($config) {
-        $dsn = "{$config['type']}:host={$config['host']};dbname={$config['dbname']}";
-        try {
-            $this->pdo = new PDO($dsn, $config['username'], $config['password']);
-            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            die("Connection failed: " . $e->getMessage());
-        }
-    }
+	
+	class MySQLWrapper extends DBWrapper {
+		protected function connect($config) {
+			$dsn = "{$config['type']}:host={$config['host']};dbname={$config['dbname']}";
+			try {
+				$this->pdo = new PDO($dsn, $config['username'], $config['password']);
+				$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			} catch (PDOException $e) {
+				die("Connection failed: " . $e->getMessage());
+			}
+		}
+	}
+	
 3. Убедитесь, что база данных настроена и запущена.
 
 ## 3. Запуск

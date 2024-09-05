@@ -30,7 +30,7 @@
 			];
 2. Создайте дочерний класс, отнаследовав его от класса DBWrapper и реализуйсте метод connect.
 	
-	class MySQLWrapper extends DBWrapper {
+	class MyDatabase extends DBWrapper {
 		protected function connect($config) {
 			$dsn = "{$config['type']}:host={$config['host']};dbname={$config['dbname']}";
 			try {

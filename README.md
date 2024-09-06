@@ -12,25 +12,29 @@
 ### 2.2. Установка
 
 1. Склонируйте репозиторий проекта:
+   ```
    git clone https://github.com/Lars0n5/QueryBuilder.git
+   ```
    
-2. Перейдите в директорию проекта
+3. Перейдите в директорию проекта
 
 ### 2.3. Настройка
 
 1. Настройте подключение к базе данных, указав правильные параметры в файле конфигурации:
-
-		Пример конфигурации для MySQL:
-			$config = [
-				'host' => 'localhost',
-				'dbname' => 'test_db',
-				'username' => 'root',
-				'password' => '',
-				'type' => 'mysql'
-			];
-2. Создайте дочерний класс, отнаследовав его от класса DBWrapper и реализуйсте метод connect.
+	Пример конфигурации для MySQL:
+		```
+		$config = [
+			'host' => 'localhost',
+			'dbname' => 'test_db',
+			'username' => 'root',
+			'password' => '',
+			'type' => 'mysql'
+		];
+		```
+3. Создайте дочерний класс, отнаследовав его от класса DBWrapper и реализуйсте метод connect.
 	
-	```class MyDatabase extends DBWrapper {
+	```
+ 	class MyDatabase extends DBWrapper {
 		protected function connect($config) {
 			$dsn = "{$config['type']}:host={$config['host']};dbname={$config['dbname']}";
 			try {
@@ -41,14 +45,16 @@
 			}
 		}
 	}
+ 	```
 	
-3. Убедитесь, что база данных настроена и запущена.
+4. Убедитесь, что база данных настроена и запущена.
 
 ## 3. Запуск
 
 1. Создайте экземпляр дочернего класса.
 	```
 	$db = new MyDatabase($config);
+ 	```
 2. Реализуйте необходиные методы класса DBWrapper.
 3. Запустите проект.
 		

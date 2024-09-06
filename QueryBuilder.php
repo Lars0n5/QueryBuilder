@@ -8,7 +8,7 @@
         protected $limit;
         protected $orderBy;
 
-        public function _construct($config) {
+        public function __construct($config) {
             $this->connect($config);
         }
         
@@ -23,13 +23,13 @@
             $this->fields = implode(", ", array_keys($data));
             $placeholder = implode(", ", array_fill(0, count($data), "?"));
             $this->values = array_values($data);
-            $this->query = "INSERT INTO {this->table} ({this->fields}) VALUES ({$placeholders})";
+            $this->query = "INSERT INTO {$this->table} ({$this->fields}) VALUES ({$placeholders})";
             return $this;
         }
 
         public function select($fields = "*") {
             $this->fields = is_array($fields) ? implode(", ", $fields) : $fields;
-            $this->query = "SELECT {this->fields} FROM {$this->table}";
+            $this->query = "SELECT {$this->fields} FROM {$this->table}";
             return $this;
         }
 

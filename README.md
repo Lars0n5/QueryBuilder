@@ -27,7 +27,7 @@
 				'username' => 'root',
 				'password' => '',
 				'type' => 'mysql'
-			];```
+			];
 2. Создайте дочерний класс, отнаследовав его от класса DBWrapper и реализуйсте метод connect.
 	
 	```class MyDatabase extends DBWrapper {
@@ -40,14 +40,14 @@
 				die("Connection failed: " . $e->getMessage());
 			}
 		}
-	}```
+	}
 	
 3. Убедитесь, что база данных настроена и запущена.
 
 ## 3. Запуск
 
 1. Создайте экземпляр дочернего класса.
-	$db = new MyDatabase($config);
+	```$db = new MyDatabase($config);
 2. Реализуйте необходиные методы класса DBWrapper.
 3. Запустите проект.
 		

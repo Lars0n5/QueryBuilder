@@ -21,16 +21,16 @@
 1. Настройте подключение к базе данных, указав правильные параметры в файле конфигурации:
 
 		Пример конфигурации для MySQL:
-			$config = [
+			```$config = [
 				'host' => 'localhost',
 				'dbname' => 'test_db',
 				'username' => 'root',
 				'password' => '',
 				'type' => 'mysql'
-			];
+			];```
 2. Создайте дочерний класс, отнаследовав его от класса DBWrapper и реализуйсте метод connect.
 	
-	class MyDatabase extends DBWrapper {
+	```class MyDatabase extends DBWrapper {
 		protected function connect($config) {
 			$dsn = "{$config['type']}:host={$config['host']};dbname={$config['dbname']}";
 			try {
@@ -40,7 +40,7 @@
 				die("Connection failed: " . $e->getMessage());
 			}
 		}
-	}
+	}```
 	
 3. Убедитесь, что база данных настроена и запущена.
 
